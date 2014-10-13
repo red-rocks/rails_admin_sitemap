@@ -1,0 +1,11 @@
+
+en:
+  admin:
+    actions:
+      sitemap:
+        title: "Sitemap"
+        menu: "Sitemap for %{model_label} '%{object_label}'"
+        breadcrumb: "Sitemap"
+        link: "Sitemap"
+        bulk_link: "Sitemap selected %{model_label_plural}"
+        done: "Sitemaped"

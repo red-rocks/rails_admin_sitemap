@@ -1,0 +1,10 @@
+ru:
+  admin:
+    actions:
+      sitemap:
+        title: "Перегенерить Sitemap"
+        menu: "Перегенерить Sitemap"
+        breadcrumb: "Sitemap"
+        link: "Перегенерить Sitemap"
+        bulk_link: "Перегенерить Sitemap"
+        done: "Sitemap сгенерен"
