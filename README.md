@@ -14,11 +14,11 @@ And then execute:
 
 ## Usage
 
-RailsAdminSitemap.config do |config|
-  config.generator    = :sitemap_generator # default; also :dynamic_sitemaps or :rails_sitemap
-  config.config_file  = Rails.root.join("config", "sitemap.rb")  # default; for sitemap_generator and rails_sitemap (in future) gems
-  config.output_file  = Rails.root.join("public", "sitemap.xml") # default; for rails_sitemap gem (in future)
-end
+    RailsAdminSitemap.config do |config|
+      config.generator    = :sitemap_generator # default; also :dynamic_sitemaps or :rails_sitemap
+      config.config_file  = Rails.root.join("config", "sitemap.rb")  # default; for sitemap_generator and rails_sitemap (in future) gems
+      config.output_file  = Rails.root.join("public", "sitemap.xml") # default; for rails_sitemap gem (in future)
+    end
 
 ## Features
 
