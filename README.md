@@ -4,9 +4,21 @@ Integration sitemap generators in rails_admin. Add link to secondary navigation 
 
 ## Installation
 
+Select one of this sitemap gems and install it
+
+    https://github.com/kjvarga/sitemap_generator
+    gem "sitemap_generator"
+
+    https://github.com/chr1s1/dynamic_sitemaps
+    gem 'dynamic_sitemaps', github: "chr1s1/dynamic_sitemaps" #this fork has fix for Mongoid
+
+    https://github.com/viseztrance/rails-sitemap
+    gem "sitemap"
+
 Add this line to your application's Gemfile:
 
     gem 'rails_admin_sitemap', :github => 'ack43/rails_admin_sitemap'
+
 
 And then execute:
 
@@ -14,16 +26,24 @@ And then execute:
 
 ## Usage
 
-    RailsAdminSitemap.config do |config|
-      config.generator    = :sitemap_generator # default; also :dynamic_sitemaps or :rails_sitemap
-      config.config_file  = Rails.root.join("config", "sitemap.rb")  # default; for sitemap_generator and rails_sitemap (in future) gems
-      config.output_file  = Rails.root.join("public", "sitemap.xml") # default; for rails_sitemap gem (in future)
+    RailsAdminSitemap.configure do |config|
+
+      @generator    = :sitemap_generator  # default; also :dynamic_sitemaps or :rails_sitemap
+      @config_file  = Rails.root.join("config", "sitemap.rb")   # default
+      @output_file  = Rails.root.join("public", "sitemap.xml")  # default for :sitemap_generator and :rails_sitemap
+
+      # default for :dynamic_sitemaps
+      @dynamic_sitemaps_conf = {
+        path: Rails.root.join("public"),
+        folder: "sitemaps",
+        index_file_name: "sitemap.xml"
+      }
     end
+
+  And configure @config_file for selected gem
 
 ## Features
 
-  Default sitemap_generator work perfectly. Any generators use rake task so it is needed to fix. 
-  
   All you need is install generator and set the config.
     
 ## Contributing

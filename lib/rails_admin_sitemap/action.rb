@@ -21,6 +21,7 @@ module RailsAdmin
             error = nil
 
             begin
+
               case RailsAdminSitemap.configuration.generator
 
                 #https://github.com/kjvarga/sitemap_generator
@@ -29,37 +30,23 @@ module RailsAdmin
 
                 #https://github.com/lassebunk/dynamic_sitemaps
                 when :dynamic_sitemaps
-                  #temporary solution
-                  `rake sitemap:generate`
+                  require 'dynamic_sitemaps'
+                  DynamicSitemaps.configure do |config|
+                    config.path             = RailsAdminSitemap.configuration.dynamic_sitemaps_conf[:path]
+                    config.folder           = RailsAdminSitemap.configuration.dynamic_sitemaps_conf[:folder]
+                    config.index_file_name  = RailsAdminSitemap.configuration.dynamic_sitemaps_conf[:index_file_name]
 
-                  #todo fixit
-                  # require 'dynamic_sitemaps'
-                  #
-                  # #https://github.com/lassebunk/dynamic_sitemaps/issues/25
-                  # if !defined?(ActiveRecord) and !defined?(ActiveRecord::Base) or !defined?(DynamicSitemaps::SitemapGenerator::ActiveRecord::Base)
-                  #   module DynamicSitemaps
-                  #     class SitemapGenerator
-                  #       class ActiveRecord
-                  #         class Base
-                  #         end
-                  #       end
-                  #     end
-                  #   end
-                  # end
-                  # ::DynamicSitemaps.generate_sitemap
+                    config.config_path      = RailsAdminSitemap.configuration.config_file
+                  end
+                  DynamicSitemaps.generate_sitemap
 
                 #https://github.com/viseztrance/rails-sitemap
                 when :rails_sitemap
-                  #temporary solution
-                  `rake sitemap:generate`
-                  #todo fixit
-                  # ::Sitemap::Generator.instance.fragments.each do |f| FileUtils.rm(f) if Pathname.new(f).exist? end
-                  # ::Sitemap::Generator.instance.fragments = []
-                  # ::Sitemap::Generator.instance.store.reset!
-                  #
-                  # load RailsAdminSitemap.configuration.config_file
-                  # ::Sitemap::Generator.instance.build!
-                  # ::Sitemap::Generator.instance.save(RailsAdminSitemap.configuration.output_file)
+                  require "sitemap"
+                  require RailsAdminSitemap.configuration.config_file
+                  path = RailsAdminSitemap.configuration.output_file
+                  ::Sitemap::Generator.instance.build!
+                  ::Sitemap::Generator.instance.save path
 
                 else
                   error = t("admin.actions.sitemap.incorrect_generator")
