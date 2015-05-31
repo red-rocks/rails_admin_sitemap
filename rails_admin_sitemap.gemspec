@@ -9,13 +9,13 @@ Gem::Specification.new do |s|
   s.version     = RailsAdminSitemap::VERSION
   s.authors     = ["Alexander Kiseliev"]
   s.email       = ["i43ack@gmail.com"]
-  s.homepage    = ""
+
   s.summary     = "gem sitemap_generator integration in rails_admin"
   s.description = "gem sitemap_generator integration in rails_admin"
   s.license     = "MIT"
   s.homepage    = "https://github.com/ack43/rails_admin_sitemap"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.require_paths = ["lib"]
 
   s.add_dependency "rails"
