@@ -102,3 +102,6 @@ PLATFORMS
 
 DEPENDENCIES
   rails_admin_sitemap!
+
+BUNDLED WITH
+   1.10.2
