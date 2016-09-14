@@ -5,8 +5,8 @@ ul.nav.pull-right.root_links
     - data_method = "put"     if action.http_methods.include?(:put)
     - data_method = "delete"  if action.http_methods.include?(:delete)
 
-    li{class="#{action.action_name}_root_link"}= link_to wording_for(:menu, action), { action: action.action_name, controller: 'rails_admin/main' }, class: (action.pjax? ? "pjax" : ""), data: data_method ? {method: data_method, confirm: t("admin.actions.#{action.action_name}.confirm")} : nil
-
+    li{class="#{action.action_name}_root_link"}
+      = link_to wording_for(:menu, action), { action: action.action_name, controller: 'rails_admin/main' }, class: (action.pjax? ? "pjax" : ""), data: data_method ? {method: data_method, confirm: t("admin.actions.#{action.action_name}.confirm")} : nil
 
   - if main_app_root_path = (main_app.root_path rescue false)
     li= link_to t('admin.home.name').capitalize, main_app_root_path
