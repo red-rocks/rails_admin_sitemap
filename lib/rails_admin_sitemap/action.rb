@@ -11,6 +11,13 @@ module RailsAdmin
           true
         end
 
+        register_instance_option :route_fragment do
+          'sitemap_generator'
+        end
+
+        register_instance_option :template_name do
+          'sitemap'
+        end
 
         register_instance_option :controller do
           Proc.new do
@@ -103,6 +110,14 @@ module RailsAdmin
 
         register_instance_option :collection? do
           true
+        end
+
+        register_instance_option :route_fragment do
+          'sitemap_generator'
+        end
+
+        register_instance_option :template_name do
+          'sitemap'
         end
 
       end

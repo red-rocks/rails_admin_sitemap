@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_admin_sitemap (0.3.0)
+    rails_admin_sitemap (0.3.0.1)
       rails_admin (>= 0.8.1)
 
 GEM

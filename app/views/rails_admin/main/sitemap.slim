@@ -6,5 +6,5 @@
         
     = link_to "Проверить", "/sitemap.xml.gz", target: :_blank, title: "Проверить сожержимое sitemap.xml там и сейчас"    
     '&nbsp;&nbsp;
-    = link_to "Проверить тут", sitemap_path(model_name: @abstract_model, get_xml: true), title: "Проверить сожержимое sitemap.xml здесь и сейчас", onclick: "$('#file_contents').load(this.href, function(){$('#file_contents').text($('#file_contents').html())}); return false;"
+    = link_to "Проверить тут", sitemap_path(model_name: @abstract_model, get_xml: true), title: "Проверить сожержимое sitemap.xml здесь и сейчас", onclick: "$('#file_contents').load(this.href + '?' + (new Date().getTime()), function(){$('#file_contents').text($('#file_contents').html())}); return false;"
     pre#file_contents{style='margin-bottom: 20px;'}
