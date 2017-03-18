@@ -11,9 +11,6 @@ module RailsAdmin
           true
         end
 
-        # register_instance_option :breadcrumb_parent do
-        #   nil
-        # end
 
         register_instance_option :controller do
           Proc.new do
@@ -81,10 +78,6 @@ module RailsAdmin
         end
 
         register_instance_option :statistics? do
-          false
-        end
-
-        register_instance_option :pjax? do
           false
         end
 

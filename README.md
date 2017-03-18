@@ -1,6 +1,6 @@
 # RailsAdminSitemap
 
-Integration sitemap generators in rails_admin. Add link to secondary navigation (overridden)
+Integration sitemap generators in rails_admin.
 
 ## Installation
 
@@ -17,7 +17,7 @@ Select one of this sitemap gems and install it
 
 Add this line to your application's Gemfile:
 
-    gem 'rails_admin_sitemap', :github => 'ack43/rails_admin_sitemap'
+    gem 'rails_admin_sitemap'
 
 
 And then execute:
@@ -28,24 +28,46 @@ And then execute:
 
     RailsAdminSitemap.configure do |config|
 
-      @generator    = :sitemap_generator  # default; also :dynamic_sitemaps or :rails_sitemap
-      @config_file  = Rails.root.join("config", "sitemap.rb")   # default
-      @output_file  = Rails.root.join("public", "sitemap.xml")  # default for :sitemap_generator and :rails_sitemap
+      config.generator    = :sitemap_generator  # default; also :dynamic_sitemaps or :rails_sitemap
+      config.config_file  = Rails.root.join("config", "sitemap.rb")   # default
+      config.output_file  = Rails.root.join("public", "sitemap.xml")  # default for :sitemap_generator and :rails_sitemap
 
       # default for :dynamic_sitemaps
-      @dynamic_sitemaps_conf = {
+      config.dynamic_sitemaps_conf = {
         path: Rails.root.join("public"),
         folder: "sitemaps",
         index_file_name: "sitemap.xml"
       }
     end
 
-  And configure @config_file for selected gem
+  Configure config_file for selected gem.
+
+  Add 'sitemap' or `sitemap_for_model` action in config/initializers/rails_admin.rb
+
+```ruby
+RailsAdmin.config do |config|
+
+  config.actions do
+
+    sitemap
+    # or
+    sitemap_for_model do
+      visible do
+        ['Page', 'SEO'].include? bindings[:abstract_model].model_name
+      end
+    end
+
+  end
+
+end
+```
+
+Action `sitemap` is root action, `sitemap_for_model` action is collection action. They do same things and so locate it wherever you want.
 
 ## Features
 
   All you need is install generator and set the config.
-    
+
 ## Contributing
 
 1. Fork it
