@@ -13,3 +13,15 @@ en:
 
         incorrect_generator: "Incorrect Sitemap generator"
         unknown_error:        "Unknown error"
+
+      sitemap_for_model:
+        title:      "Sitemap"
+        menu:       "Sitemap for %{model_label} '%{object_label}'"
+        breadcrumb: "Sitemap"
+        link:       "Sitemap"
+        bulk_link:  "Sitemap selected %{model_label_plural}"
+        done:       "Sitemaped"
+        confirm:    "Are you sure, you want to regenerate Sitemap?"
+
+        incorrect_generator: "Incorrect Sitemap generator"
+        unknown_error:        "Unknown error"

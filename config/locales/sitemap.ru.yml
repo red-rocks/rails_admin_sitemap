@@ -12,3 +12,15 @@ ru:
 
         incorrect_generator: "Неверно указан генератор Sitemap"
         unknown_error:       "Неизвестная ошибка"
+
+      sitemap_for_model:
+        title:      "Перегенерить Sitemap"
+        menu:       "Перегенерить Sitemap"
+        breadcrumb: "Sitemap"
+        link:       "Перегенерить Sitemap"
+        bulk_link:  "Перегенерить Sitemap"
+        done:       "Sitemap сгенерен"
+        confirm:    "Вы уверены, что хотите перегенерить Sitemap?"
+
+        incorrect_generator: "Неверно указан генератор Sitemap"
+        unknown_error:       "Неизвестная ошибка"
